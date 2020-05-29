@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "851959124026",
+    "firebase_url": "https://authentification-33edc.firebaseio.com",
+    "project_id": "authentification-33edc",
+    "storage_bucket": "authentification-33edc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:851959124026:android:8bb4675cf69209c8886503",
+        "android_client_info": {
+          "package_name": "com.tasks.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "851959124026-fhuu5r6sph44dd4aq68q2q3u8017f5tc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tasks.app",
+            "certificate_hash": "86c841f5b5955bfeb690458bea91830669c39822"
+          }
+        },
+        {
+          "client_id": "851959124026-k9g7hj79for60ee13m6l86l7ip4vssn2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwh-OF_nHEssFrVa0FE0QDuP1B451l8gg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "851959124026-k9g7hj79for60ee13m6l86l7ip4vssn2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
