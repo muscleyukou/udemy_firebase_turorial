@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:myhiittimer/view/screen/home_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
-  runApp(MyApp());
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  var prefs = await SharedPreferences.getInstance();
+  runApp(MyApp(prefs: prefs));
 }
 
 class MyApp extends StatelessWidget {
+  final SharedPreferences prefs;
+  MyApp({this.prefs});
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -13,7 +18,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         brightness: Brightness.dark,
       ),
-      home: HomeScreen(),
+      home: HomeScreen(
+        prefs: prefs,
+      ),
     );
   }
 }
