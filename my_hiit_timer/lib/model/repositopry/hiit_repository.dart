@@ -12,9 +12,6 @@ class Hiit {
   Duration restSeconds;
   Duration breakSeconds;
 
-
-
-
   Hiit(
       {this.sets,
       this.reps,
@@ -25,4 +22,7 @@ class Hiit {
 
   factory Hiit.fromJson(Map<String, dynamic> json) => _$HiitFromJson(json);
   Map<String, dynamic> toJson() => _$HiitToJson(this);
+ Duration totalTime(){
+  return  (exerciseSeconds*sets*reps)+ (restSeconds*sets*(reps-1))+(breakSeconds*sets*(reps-1));
+  }
 }
