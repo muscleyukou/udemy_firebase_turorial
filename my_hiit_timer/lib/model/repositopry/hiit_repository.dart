@@ -7,10 +7,12 @@ part 'hiit_repository.g.dart';
 class Hiit {
   int sets;
   int reps;
-  Duration statSeconds;
+  Duration startSeconds;
   Duration exerciseSeconds;
   Duration restSeconds;
   Duration breakSeconds;
+
+
 
 
   Hiit(
@@ -19,9 +21,8 @@ class Hiit {
       this.breakSeconds,
       this.exerciseSeconds,
       this.restSeconds,
-      this.statSeconds});
+      this.startSeconds});
 
   factory Hiit.fromJson(Map<String, dynamic> json) => _$HiitFromJson(json);
-
   Map<String, dynamic> toJson() => _$HiitToJson(this);
 }
