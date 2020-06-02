@@ -25,6 +25,9 @@ class _WorkoutPageState extends State<WorkoutPage> {
   _onWorkoutChanged(){
     if(_workout.step==WorkoutState.finished){
       Screen.keepOn(false);
+      setState(() {
+
+      });
     }
     setState(() {
     });
@@ -43,15 +46,9 @@ Screen.keepOn(true);
               Text('${stepName(_workout.step)}', style: TextStyle(fontSize: 30.0),),
               SizedBox(height: 40,),
               SleekCircularSlider(
-                initialValue:_w.totalTime().inSeconds.toDouble(),
+                initialValue:widget.hiit.totalTime().inSeconds.toDouble(),
                 max:widget.hiit.totalTime().inSeconds.toDouble() ,
                 min: 0,
-                onChange: (double value){
-                  setState(() {
-                    value=_workout.totalTime;
-                  });
-
-                },
                 appearance: CircularSliderAppearance(
                   spinnerDuration:2000,
                     size: 300

@@ -3,6 +3,9 @@ import 'dart:async';
 import 'package:audioplayers/audio_cache.dart';
 import 'package:myhiittimer/model/repositopry/hiit_repository.dart';
 var player = AudioCache();
+Future _playSound(String sound){
+  return player.play(sound);
+}
 enum WorkoutState{
   initial,starting,exercising,resting,breaking,finished
 }
@@ -34,7 +37,7 @@ class Workout{
   }
 
 
-  void _tick(Timer timer) {
+ _tick(Timer timer) {
     if(_step!=WorkoutState.starting){
       _totalTime+=Duration(seconds: 1);
     }
@@ -42,8 +45,10 @@ class Workout{
      _next();
    }else{
      _timeLeft-=Duration(seconds: 1);
-     if(_timeLeft.inSeconds<=3&&_timeLeft.inSeconds<0){
+     if(_timeLeft.inSeconds<=3&&_timeLeft.inSeconds>0){
        //todo play music
+        _playSound('dingdingding.mp3');
+
      }
    }
 _onSateChange();
@@ -68,15 +73,16 @@ _onSateChange();
     }
   }
 //start method
-  void _startSet() {
+ _startSet() {
    _timeLeft=_config.exerciseSeconds;
    _step=WorkoutState.exercising;
    _sets++;
    _reps=1;
    //todo playsound
+  return _playSound('boop.mp3');
   }
 //break
-  void _startBreak() {
+   _startBreak() {
     _step=WorkoutState.breaking;
     _timeLeft=_config.breakSeconds;
     if(_config.breakSeconds.inSeconds==0){
@@ -85,28 +91,33 @@ _onSateChange();
     }
     //todo nextstep
     //todo playsound
+    _timeLeft=_config.restSeconds;
+     return  _playSound('boop.mp3');
   }
 //finish
-  void _finish() {
+ _finish() {
     _timer.cancel();
     _step=WorkoutState.finished;
     _timeLeft=Duration(seconds: 0);//seconds 0にすることで進まなくなる
     //todo playsound
+        return _playSound('pip.mp3');
   }
 //startrep
-  void _startRep() {
+  _startRep() {
     _timeLeft=_config.exerciseSeconds;
     _step=WorkoutState.exercising;
     _reps++;
     //todo playsound
+  return _playSound('dingdingding.mp3');
   }
-  void _startRest() {
+ _startRest() {
     _step=WorkoutState.resting;
     if(_config.restSeconds.inSeconds==0){
       _next();
       return;
     }
     _timeLeft=_config.restSeconds;
+    return _playSound('boop.mp3');
   }
   get config=>_config;
   get sets =>_sets;

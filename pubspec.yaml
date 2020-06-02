@@ -25,7 +25,9 @@ dependencies:
     sdk: flutter
   font_awesome_flutter: ^8.8.1
   firebase_auth: ^0.16.1
-  intl_phone_number_input: ^0.4.2
+  international_phone_input: ^1.0.4
+  intl_phone_number_input: ^0.4.4
+  cloud_firestore: ^0.13.6
 
 
   # The following adds the Cupertino Icons font to your application.
